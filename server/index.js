@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import connectDB from './config/db.js';
 import authRoutes from './routes/auth.routes.js';
 import productRoutes from './routes/product.routes.js';
+import cartRoutes from './routes/cart.routes.js'
 import cookieParser from 'cookie-parser';
 
 dotenv.config();
@@ -16,6 +17,7 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
+app.use('/api/cart',cartRoutes)
 // Health Route
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: Date.now() });
